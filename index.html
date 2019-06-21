@@ -1,0 +1,422 @@
+
+
+
+<!DOCTYPE html>
+<html>
+	<meta charset='utf-8'/>
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.0/css/bootstrap.min.css">
+
+	<style type='text/css'>
+	*,body{
+		font-family:'微软雅黑';
+	}
+	.container .main{
+		text-align:center;
+	}
+	.navbar {
+    padding: 15px 0;
+    margin: 0;
+    background: #fff;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+.navbar-fixed-top {
+    top: 0;
+    border-width: 0 0 1px;
+}
+.navbar-fixed-top, .navbar-fixed-bottom {
+    position: fixed;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+}
+.navbar {
+    position: relative;
+    min-height: 50px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+		position:fixed;
+		top:0;
+}
+.navbar-header img{
+	height:54px;
+	float:left;
+}
+.navbar .name-logo{
+	margin-left:20px;
+	line-height:54px;
+	font-size:30px;
+	color:rgb(26, 180, 210);;
+	float:left;
+}
+footer{
+	height:50px;
+	color: #959595;
+	line-height:50px;
+  background: #242E35;
+}
+#navbar .active{
+	border-bottom:solid 4px rgb(228,62,28); 
+}
+#navbar li:not(.active) :hover{
+	border-bottom:solid 4px rgb(228,134,158); 
+}
+
+.video-img{
+	height:400px;
+	-webkit-box-shadow:0 0 20px 5px #aaa;
+  -moz-box-shadow:0 0 20px 5px #aaa;
+  box-shadow:0 0 20px 5px #aa;
+}
+.content section{
+	padding:105px 0 30px 0;
+}
+.content .des{
+	background:#f1f1f1;
+}
+.content .tutorial{
+	color:#fff;
+	background:rgb(91,192,222);
+}
+.content .tutorial .text{
+	margin-top:30px;
+}
+.content .tutorial .img.right{
+	text-align:right;
+}
+.content .contact{
+	background:#242E35;
+	//background:rgb(179,129,59);
+}
+.contact .head{
+	color:rgb(179,129,59);
+	margin-top:30px 0px;
+}
+.contact{
+	color:#fff;
+}
+.contact .cpy{
+	padding-top:50px;
+	color:rgb(179,129,59);
+}
+		
+.download, .why{
+	background:#f1f1f1;
+}
+		.box {
+	width: 100%;
+	padding: 50px;
+	text-align: center;
+	background: #fff;
+}
+
+#sitelist {
+    /* top: 39px; */
+		margin:0 15px 15px 15px;
+		text-align: center;
+    right: 0px;
+    height: calc(100% - 0px);
+    list-style-type: none;
+    overflow-y: auto;
+    overflow-x: overlay;
+    background-color: #fafafa;
+}
+
+.site {
+    margin: 8px 12px;
+    width: 48px;
+    height: 48px;
+    background-color: #fff;
+    padding: 8px;
+    overflow: hidden;
+    display: inline-block;
+    position: relative;
+    border-radius: 8px;
+    box-shadow: 0 0 10px #fff;
+}
+.site-icon {
+    position: relative;
+    width: 32px;
+    height: 32px;
+    float: left;
+    margin: 0px;
+}
+.site-title {
+    margin: 0px;
+    padding: 0px 0px 0px 10px;
+    position: relative;
+    height: 32px;
+    line-height: 32px;
+    font-size: 14px;
+    font-weight: 500;
+    word-break: keep-all;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    word-space: nowrap;
+    color: #4c4c4c;
+}
+.site-alt {
+    position: relative;
+    top: 10px;
+    clear: both;
+    width: 100%;
+    height: 42px;
+    font-size: 13px;
+    font-weight: 100;
+    color: #666;
+    line-height: 1.4em;
+    /* border: 1px solid #0000ff; */
+}
+
+.advantages {
+  margin-left: -30px;
+}
+.advantages, .user-case {
+  display: flex;
+  display: -webkit-flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  flex-direction: row;
+}
+.advantages li, .user-case li {
+  list-style: none;
+  width: 300px;
+  background: #fff;
+  padding: 20px 40px;
+}
+
+.advantages .content {
+  padding: 20px 0;
+  color: #888;
+  
+}
+
+.user-case li {
+  margin-bottom: 15px;
+  padding: 15px;
+  box-shadow: 0 6px 8px rgba(0,0,0,.12);
+}
+.user-case li:hover, .advantages li:hover {
+  box-shadow: 0 15px 35px 0 rgba(0,0,0, .12);
+  transform: translateY(-4px);
+}
+
+.user-case .content {
+  font-size: 1.5rem;
+  padding: 10px;
+  line-height: 1.8;
+}
+.user-case .footer {
+  text-align: right;
+  color: #bac9ca;
+  font-weight: 500;
+}
+
+.group {
+    position: relative;
+    height: 390px;
+    left: 400px;
+    top: 78px;
+    overflow: hidden;
+    width: 87%;
+}
+</style>
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type='text/javascript'>
+$(function(){
+	//计算屏幕高度自动调整
+	$('#navbar li').on('click', function(){
+		var section = $(this).attr("ref");
+		$('#navbar li').removeClass('active');
+		$(this).addClass("active");
+	});
+});
+</script>
+<body>
+	<!--导航栏开始-->
+	<nav class="navbar navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+					<img src='./logo.png'/>
+					<div class="name-logo">海棠</div>
+			</div>
+			<div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li class="active"><a href="#download" ref='downlaod'>下载</a></li>
+					<li><a href="#feature" ref='feature'>特色</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<!--导航栏结束-->
+	<!---中间内容开始--->
+	<div class="content">
+		<section id='download' class="download">
+			<div class='container'>
+						<div class="row">
+
+								<ul id="sitelist">
+									<li class="site">
+										<a class="siteLink addNew" data-site-id="1" target="_blank" href="https://www.youku.com/">
+											<img class="site-icon" src="./youku.png">
+										</a>
+                  </li>
+                  <li class="site">
+                    <a class="siteLink addNew" data-site-id="1" target="_blank" href="https://www.pinterest.com/">
+                      <img class="site-icon" src="./qqvideo.png">
+                    </a>
+                  </li>
+                  <li class="site">
+                    <a class="siteLink addNew" data-site-id="1" target="_blank" href="https://www.pinterest.com/">
+                      <img class="site-icon" src="./iqiyi.png">
+                    </a>
+                  </li>
+                  <li class="site">
+                      <a class="siteLink addNew" data-site-id="1" target="_blank" href="https://www.pinterest.com/">
+                        <img class="site-icon" src="./bilibili.png">
+                      </a>
+                    </li>
+                    <li class="site">
+                        <a class="siteLink addNew" data-site-id="1" target="_blank" href="https://www.pinterest.com/">
+                          <img class="site-icon" src="./163music.png">
+                        </a>
+                      </li>
+                      <li class="site">
+                        <a class="siteLink addNew" data-site-id="1" target="_blank" href="https://www.pinterest.com/">
+                          <img class="site-icon" src="./qqmusic.png">
+                        </a>
+                      </li>
+                      <li class="site">
+                        <a class="siteLink addNew" data-site-id="1" target="_blank" href="https://www.pinterest.com/">
+                          <img class="site-icon" src="./tudou.png">
+                        </a>
+                      </li>
+                      
+                        <li class="site">
+                          <a class="siteLink addNew" data-site-id="1" target="_blank" href="https://www.pinterest.com/">
+                            <img class="site-icon" src="./xiami.png">
+                          </a>
+                        </li>
+                          
+                            <li class="site">
+                                <a class="siteLink addNew" data-site-id="1" target="_blank" href="https://www.pinterest.com/">
+                                  <img class="site-icon" src="./mgtv.png">
+                                </a>
+                              </li>
+                      <li class="site">
+                          <a class="siteLink addNew" data-site-id="1" target="_blank" href="https://www.pinterest.com/">
+                            <img class="site-icon" src="./kugou.png">
+                          </a>
+                        </li>
+                        <li class="site">
+                            <a class="siteLink addNew" data-site-id="1" target="_blank" href="#">
+                              <img class="site-icon" src="./more.png">
+                            </a>
+                          </li>
+                </ul>
+						</div>
+						<div class="row">
+							<div class="col-xs-12">
+								<div class="box">
+									<h2>一键轻松解锁海外限制</h2>
+									<p>即使身在海外，也能轻松追剧、听歌、看电影,很有可能是有史以来最简单易用、高效稳定工具之一</p>	
+									<br/>
+									
+									
+                  <a href="https://www.lanzous.com/i4km8pe" target="_blank">
+                    <button class="btn btn-info" style="background-color: #2196F3;">
+                      <img src="./chrome.png" width=35 height="35"/>安装Chrome扩展</button>
+                  </a>
+									
+								</div>
+							</div>
+							
+						</div>
+					</div>
+				
+		</section>
+		
+		<section id='downlaod' class="downlaod">
+			<div class="container">
+        <div class="row">
+          <div class="desc col-xs-3" style="line-height: 2">
+            <h2>他(她)们都在用</h2>
+            <img src='http://ugc.qpic.cn/gbar_pic/2wF3sr2LiaVsekheO6nZLZp4cYRVPOiaic2WBtqNPKicV1e3EhnCEZICXg/0' width="80%"/>
+            <p>海棠自上线以来，受到无数用户好评，我们将一如既往，继续努力！</p>
+
+          </div> 
+          <div class="col-xs-9">
+            <ul class="user-case">
+              <li class="comment" style="margin-left: 26px;">
+                <p class="content">试用了一段时间觉得非常好，稳定速度快，平常用来看爱奇艺和b站，腾讯视频偶尔也会看。</p>
+                <p class="footer">- 来自美国用户Daniel Zhang</p>
+              </li>
+              <li class="comment" style="margin-left: 26px;">
+                <p class="content">unblock youku看不了bilibili动画了 试了一下这个 非常好用 速度非常快！推荐！</p>
+                <p class="footer">- 来自日本留学生Mio奈奈</p>
+              </li>
+              <li class="comment" style="margin-left: 26px;">
+                <p class="content">由於版權限制，在台灣沒法看大陸的電視劇，感謝海棠，非常好用的Chrome擴充功能，支援大陸線上電視！</p>
+                <p class="footer">- 来自台灣的匿名用户</p>
+              </li>
+              <li class="comment" style="margin-left: 26px;">
+                <p class="content">在国外由于版权问题一直无法收听网易云音乐，自从有了这个，再也不用担心这个问题啦，畅听无阻，太给力啦！必须赞一个！</p>
+                <p class="footer">- 来自澳洲留学生Humphrey</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </section>
+
+      <section id='feature' class="why" style="padding: 60px">
+          <div class='container'>
+            <div class="row">
+            <h2 style="text-align: center;margin: 0 0 40px 0">为什么选我们？</h2>
+            <ul class='advantages'>
+              <li>
+                  <p class="text-center"><img src="./gaoxiao.png" /></p>
+
+                <h3 class="title text-center">高效快捷</h3>
+                <div class="content">
+                  <p>简单易用，只需两步，一键开启。</p>
+                  <p>支持音视频加速，畅享飞一般的感觉！</p>
+                </div>
+              </li>
+              <li>
+                  <p class="text-center"><img src="./wending.png" /></p>
+                  <h3 class="title text-center">稳定可靠</h3>
+                  <div class="content">
+                      <p>多条线路，保障您的后顾之忧!</p>
+                      <p>加密连接保障您的隐私不被追踪泄露！</p>
+                      <p>7x24小时客服服务！</p>
+                  </div>
+              </li>
+              <li>
+                  <p class="text-center"><img src='./vip.png' /></p>
+                  <h3 class="title text-center">高性价比</h3>
+                  <div class="content">
+                      <p>最低月$3元起步，高性价比。</p>
+                      <p>拒绝免费套路，拒绝广告和盗号</p>
+                      <p>我们选择提供有价值的优质服务</p>
+                  </div>
+              </li>
+            </ul>
+            </div>
+          </div>	
+        </section>
+
+		</section>
+    <section class="contact" style="padding: 0px 0 40px 0">
+			<div class='container' >
+				<div class='row'>
+          <div class="col-xs-6 cpy">
+            ©UnblockCN 海棠 2019 All rights Reserved.
+          </div>
+				</div>
+			</div>	
+		</section>
+	</div>
+</body>
+</html>
