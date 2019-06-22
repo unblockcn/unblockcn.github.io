@@ -1,5 +1,9 @@
 {
-  "version": "1"
+  "app_version": "1",
+  "app_size": "1.2M",
+  "app_desc": "有新的更新~",
+  "app_url": "https://unblockcn.github.io/zan.apk",
+  "home_url": "https://unblockcn.github.io",
   "G_AD_ID": "ca-app-pub-4274484620005557~6220281151",
   "G_AD_BANNER": "ca-app-pub-3940256099942544/6300978111",
   "G_AD_FULLSCREEN": "ca-app-pub-3940256099942544/1033173712",
